@@ -20,6 +20,7 @@ class Bullet(Sprite):
         self.color = setting.bullet_color
         self.speed_factor = setting.bullet_speed_factor
 
+
     def update(self):
         """
         更新表示子弹位置的小数值
@@ -29,6 +30,7 @@ class Bullet(Sprite):
         self.y -= self.speed_factor
         # 更新表示子弹的rect的位置
         self.rect.y = self.y
+
 
     def draw_bullet(self):
         """

@@ -13,15 +13,19 @@ def run_game():
     pygame.init()
 
     screen = pygame.display.set_mode((setting.screen_width, setting.screen_height))
-    fighter = Fighter(screen)  # s实例化战机
+    fighter = Fighter(screen)  # 实例化战机
     pygame.display.set_caption("Alien Invasion")
+    bullets = Group()   # 创建一个用于存储子弹的编组
     # 开始游戏的主循环
     while True:
         screen.fill(setting.background_color)
         fighter.blitme()
         fighter.update()
-        gf.check_events(fighter)
-        gf.update_screen(setting, screen, fighter)
+        bullets.update()
+
+
+        gf.check_events(setting, screen, fighter, bullets)
+        gf.update_screen(setting, screen, fighter, bullets)
 
 
 
